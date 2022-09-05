@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace GitLabApiClient.Models.MergeRequests.Responses
 {
-    public sealed class MergeRequest : ModifiableObject
+    public class MergeRequest : ModifiableObject
     {
         [JsonProperty("labels")]
         public List<string> Labels { get; } = new List<string>();
@@ -92,5 +92,8 @@ namespace GitLabApiClient.Models.MergeRequests.Responses
 
         [JsonProperty("merged_by")]
         public Assignee MergedBy { get; set; }
+
+        [JsonProperty("has_conflicts")]
+        public bool HasConflicts { get; set; }
     }
 }

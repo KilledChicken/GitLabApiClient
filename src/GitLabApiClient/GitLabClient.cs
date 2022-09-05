@@ -75,6 +75,7 @@ namespace GitLabApiClient
             Pipelines = new PipelineClient(_httpFacade, pipelineQueryBuilder, jobQueryBuilder);
             Trees = new TreesClient(_httpFacade, treeQueryBuilder);
             Files = new FilesClient(_httpFacade);
+            Repositories = new RepositoryClient(_httpFacade);
             Runners = new RunnersClient(_httpFacade);
             ToDoList = new ToDoListClient(_httpFacade, toDoListBuilder);
             Connection = new ConnectionClient(_httpFacade);
@@ -144,6 +145,11 @@ namespace GitLabApiClient
         /// Access GitLab's files API.
         /// </summary>
         public IFilesClient Files { get; }
+
+        /// <summary>
+        /// Access GitLab's Repository API.
+        /// </summary>
+        public IRepositoryClient Repositories { get; }
 
         /// <summary>
         /// Access GitLab's Markdown API.

@@ -175,5 +175,12 @@ namespace GitLabApiClient
         public async Task<IList<AwardEmoji>> GetAwardEmojisAsync(ProjectId projectId, int mergeRequestIid) =>
             await _httpFacade.GetPagedList<AwardEmoji>($"projects/{projectId}/merge_requests/{mergeRequestIid}/award_emoji");
 
+        /// <summary>
+        /// Retrieves information about the merge request including its files and changes.
+        /// </summary>
+        /// <param name="projectId">The ID, path or <see cref="Project"/> of the project.</param>
+        /// <param name="mergeRequestIid">The Internal Merge Request Id.</param>
+        public async Task<MergeChanges> GetMergeRequestChangesAsync(ProjectId projectId, int mergeRequestIid)
+            => await _httpFacade.Get<MergeChanges>($"projects/{projectId}/merge_requests/{mergeRequestIid}/changes");
     }
 }
